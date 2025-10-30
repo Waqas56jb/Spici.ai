@@ -19,13 +19,14 @@ html, body, #root {
   color: var(--text);
 }
 
+/* Responsive centering for app container */
 .app {
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: 32px 16px 48px;
+  justify-content: center;
+  padding: 0 8px;
 }
 
 /* Logo */
@@ -114,6 +115,7 @@ html, body, #root {
   border-radius: 999px;
   font-weight: 700;
   cursor: pointer;
+  min-width: 160px;
 }
 
 .btn--primary {
@@ -172,6 +174,14 @@ html, body, #root {
 /* Make card feel elevated with subtle outer glow */
 .card {
   position: relative;
+  margin: 0 auto;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 420px;
+}
+@media (max-width: 400px) {
+  .card { padding: 10px 2vw; max-width: 99vw; }
 }
 .card::after {
   content: "";
@@ -181,4 +191,122 @@ html, body, #root {
   background: radial-gradient(40% 40% at 50% 0%, rgba(255,31,115,0.18), rgba(255,31,115,0));
   z-index: -1;
   filter: blur(12px);
+}
+
+/* Age Verification Card with enhanced glow and responsivity */
+.age-verify {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, var(--card-start) 70%, var(--card-end) 100%);
+  border: 2.4px solid var(--primary);
+  border-radius: 19px;
+  box-shadow: 0 0 42px 0 var(--primary), 0 0 26px 5px rgba(255,31,115,0.24);
+  padding: 52px 24px 28px 24px;
+  position: relative;
+  text-align: center;
+  color: var(--text);
+  animation: card-pop 0.26s cubic-bezier(0.3, 1.4, 0.6, 1.01);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 440px;
+  justify-content: flex-start;
+}
+
+.app { /* fix vertical perfect center for all screens */
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 0 8px;
+}
+
+.age-verify__icon-glow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px auto;
+  padding: 0;
+  z-index: 3;
+  position: relative;
+}
+.age-verify__svg-icon {
+  width: 86px;
+  height: 86px;
+  filter:
+    drop-shadow(0 0 30px #ff2a9d)
+    drop-shadow(0 0 60px #ff2a9d);
+}
+
+.age-verify__title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 18px 0 14px 0;
+  color: #fff;
+  line-height: 1.08;
+}
+.age-verify__desc {
+  color: var(--muted);
+  font-size: 1.25rem;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+.btn.btn--primary {
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+  width: 100%;
+  font-size: 1.21rem;
+  height: 58px;
+  border-radius: 21px;
+  margin: 0 0 19px 0;
+  box-shadow: 0 3px 16px rgba(255,31,115,0.13);
+  max-width: 520px;
+}
+.age-verify__footer {
+  color: var(--muted);
+  font-size: 1.12rem;
+  margin-top: 30px;
+}
+
+@media (max-width: 540px) {
+  .age-verify {
+    padding: 34px 4vw 18px 4vw;
+    max-width: 98vw;
+    min-width: unset;
+    min-height: 340px;
+  }
+  .age-verify__svg-icon { width: 65px; height: 65px; }
+  .age-verify__title { font-size: 1.34rem; }
+  .age-verify__desc { font-size: 0.99rem; }
+  .btn.btn--primary { font-size: 1rem; height: 46px; }
+  .age-verify__footer { font-size: 0.91rem; }
+}
+
+/* Keep the pink dots/ring at corners */
+.age-verify::before,
+.age-verify::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.age-verify::before {
+  left: -15px; bottom: -15px;
+  width: 15px; height: 15px;
+  background: var(--primary-2);
+  opacity: 0.47;
+  box-shadow: 0 0 18px var(--primary-2);
+}
+.age-verify::after {
+  right: -17px; top: -17px;
+  width: 30px; height: 30px;
+  background: var(--primary);
+  opacity: 0.28;
+  box-shadow: 0 0 40px 7px var(--primary);
+}
+
+@keyframes card-pop {
+  from { transform: scale(0.93); opacity: 0.6; }
+  to { transform: scale(1); opacity: 1; }
 }

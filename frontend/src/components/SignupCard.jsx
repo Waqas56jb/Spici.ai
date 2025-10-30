@@ -1,14 +1,16 @@
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { FaApple } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 function SignupCard() {
+  const navigate = useNavigate();
   return (
     <div className="signup">
       <h2 className="signup__title">Create a Free Account</h2>
       <p className="signup__subtitle">Join Spici.ai and continue your conversation</p>
 
-      <form className="signup__form" onSubmit={(e) => e.preventDefault()}>
+      <form className="signup__form" onSubmit={e => { e.preventDefault(); navigate('/age-verification'); }}>
         <input className="input" type="text" placeholder="First Name" />
         <input className="input" type="email" placeholder="Email Address" />
         <input className="input" type="password" placeholder="Create Password" />
