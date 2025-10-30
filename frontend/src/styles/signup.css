@@ -51,24 +51,42 @@ html, body, #root {
 
 /* Card */
 .card {
+  margin: 0 auto;
   width: 100%;
-  max-width: 420px;
-  background: linear-gradient(180deg, var(--card-start), var(--card-end));
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  padding: 24px;
+  max-width: 410px;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 34px 22px 26px;
+  border-radius: 18.5px;
+  background: linear-gradient(180deg, var(--card-start) 70%, var(--card-end) 100%);
+  box-shadow: 0 0 40px 0 var(--primary), 0 5px 17px 10px #2a0819d8;
+  border: 1.6px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 500px) {
+  .card {
+    max-width: 99vw;
+    padding: 18px 4vw;
+    border-radius: 14px;
+  }
 }
 
 .signup {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  align-items: stretch;
+  gap: 0;
 }
-
 .signup__title {
-  font-size: 22px;
+  text-align: center;
+  font-size: 1.5rem;
   font-weight: 800;
-  margin: 2px 0 6px;
+  margin: 0 0 28px 0;
+  color: #fff;
 }
 .signup__subtitle {
   color: var(--muted);
@@ -79,8 +97,8 @@ html, body, #root {
 .signup__form {
   display: grid;
   gap: 12px;
+  margin-bottom: 18px;
 }
-
 .input {
   width: 100%;
   height: 44px;
@@ -90,9 +108,17 @@ html, body, #root {
   padding: 0 14px;
   color: var(--text);
   outline: none;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
 }
-.input::placeholder { color: #9a9aa3; }
-.input:focus { border-color: rgba(255, 31, 115, 0.5); box-shadow: 0 0 0 3px rgba(255,31,115,0.15); }
+.input::placeholder {
+  color: #9a9aa3;
+  font-weight: 400;
+}
+.input:focus {
+  border-color: rgba(255, 31, 115, 0.5);
+  box-shadow: 0 0 0 3px rgba(255,31,115,0.12);
+}
 
 .dob {
   display: grid;
@@ -129,15 +155,15 @@ html, body, #root {
   text-align: center;
   color: var(--muted);
   font-size: 12px;
-  margin: 14px 0 10px;
+  margin: 5px 0 4px;
 }
 
 .social {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  margin: 8px 0 10px;
 }
-
 .btn--social {
   display: inline-flex;
   align-items: center;
@@ -146,15 +172,19 @@ html, body, #root {
   background: rgba(255,255,255,0.04);
   border: 1px solid var(--input-border);
   color: var(--text);
+  font-size: .99rem;
+  border-radius: 8px;
+  height: 39px;
+  font-weight: 500;
 }
 .btn--social:hover { background: rgba(255,255,255,0.06); }
 
 .legal {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 11.5px;
   line-height: 1.4;
   text-align: center;
-  margin: 14px 6px 6px;
+  margin: 10px 6px 0 6px;
 }
 .legal a { color: #ff5ba3; text-decoration: none; }
 
@@ -196,117 +226,57 @@ html, body, #root {
 /* Age Verification Card with enhanced glow and responsivity */
 .age-verify {
   width: 100%;
-  max-width: 500px;
+  max-width: 360px; /* compact width */
   margin: 0 auto;
   background: linear-gradient(180deg, var(--card-start) 70%, var(--card-end) 100%);
-  border: 2.4px solid var(--primary);
-  border-radius: 19px;
-  box-shadow: 0 0 42px 0 var(--primary), 0 0 26px 5px rgba(255,31,115,0.24);
-  padding: 52px 24px 28px 24px;
+  border: 1.6px solid var(--primary);
+  border-radius: 16px;
+  box-shadow: 0 0 36px 0 var(--primary), 0 8px 24px rgba(0,0,0,0.55);
+  padding: 26px 18px 16px 18px;
   position: relative;
   text-align: center;
   color: var(--text);
-  animation: card-pop 0.26s cubic-bezier(0.3, 1.4, 0.6, 1.01);
-  overflow: visible;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 440px;
-  justify-content: flex-start;
 }
 
-.app { /* fix vertical perfect center for all screens */
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  padding: 0 8px;
-}
+.age-verify__svg-icon { width: 56px; height: 56px; filter: drop-shadow(0 0 22px #ff2a9d); }
 
-.age-verify__icon-glow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 14px auto;
-  padding: 0;
-  z-index: 3;
-  position: relative;
-}
-.age-verify__svg-icon {
-  width: 86px;
-  height: 86px;
-  filter:
-    drop-shadow(0 0 30px #ff2a9d)
-    drop-shadow(0 0 60px #ff2a9d);
-}
+.age-verify__title { font-size: 18px; font-weight: 800; margin: 10px 0 8px; }
+.age-verify__desc { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
 
-.age-verify__title {
-  font-size: 2rem;
-  font-weight: 800;
-  margin: 18px 0 14px 0;
-  color: #fff;
-  line-height: 1.08;
-}
-.age-verify__desc {
-  color: var(--muted);
-  font-size: 1.25rem;
-  margin-bottom: 40px;
-  font-weight: 400;
-}
-.btn.btn--primary {
-  background: linear-gradient(90deg, var(--primary), var(--primary-2));
-  width: 100%;
-  font-size: 1.21rem;
-  height: 58px;
-  border-radius: 21px;
-  margin: 0 0 19px 0;
-  box-shadow: 0 3px 16px rgba(255,31,115,0.13);
-  max-width: 520px;
-}
-.age-verify__footer {
-  color: var(--muted);
-  font-size: 1.12rem;
-  margin-top: 30px;
-}
+.btn.btn--primary { height: 44px; border-radius: 14px; font-size: 14px; }
 
-@media (max-width: 540px) {
-  .age-verify {
-    padding: 34px 4vw 18px 4vw;
-    max-width: 98vw;
-    min-width: unset;
-    min-height: 340px;
-  }
-  .age-verify__svg-icon { width: 65px; height: 65px; }
-  .age-verify__title { font-size: 1.34rem; }
-  .age-verify__desc { font-size: 0.99rem; }
-  .btn.btn--primary { font-size: 1rem; height: 46px; }
-  .age-verify__footer { font-size: 0.91rem; }
-}
+.age-verify__footer { font-size: 12px; color: var(--muted); margin-top: 12px; }
 
-/* Keep the pink dots/ring at corners */
-.age-verify::before,
-.age-verify::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-.age-verify::before {
-  left: -15px; bottom: -15px;
-  width: 15px; height: 15px;
-  background: var(--primary-2);
-  opacity: 0.47;
-  box-shadow: 0 0 18px var(--primary-2);
-}
-.age-verify::after {
-  right: -17px; top: -17px;
-  width: 30px; height: 30px;
-  background: var(--primary);
-  opacity: 0.28;
-  box-shadow: 0 0 40px 7px var(--primary);
+/* small decorative corner dots */
+.age-verify::before { left: -10px; bottom: -10px; width: 10px; height: 10px; }
+.age-verify::after { right: -14px; top: -14px; width: 24px; height: 24px; }
+
+@media (max-width: 420px) {
+  .age-verify { max-width: 90vw; padding: 22px 14px 14px; }
 }
 
 @keyframes card-pop {
   from { transform: scale(0.93); opacity: 0.6; }
   to { transform: scale(1); opacity: 1; }
+}
+
+.signup-switch {
+  text-align: center;
+  margin: 5px 0 14px 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+.signup-link {
+  background: none;
+  border: none;
+  color: #ff1f73;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0 0.25em;
+}
+.signup-link:hover {
+  color: #ff4da0;
+  text-decoration: underline;
 }

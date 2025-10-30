@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Logo from './components/Logo';
 import SignupCard from './components/SignupCard';
 import AgeVerificationCard from './components/AgeVerificationCard';
+import SignInCard from './components/SignInCard';
 import './styles/signup.css';
 
 function App() {
@@ -10,12 +11,11 @@ function App() {
     <Router>
       <div className="app">
         <Logo />
-        <div className="card">
-          <Routes>
-            <Route path="/" element={<SignupCard />} />
-            <Route path="/age-verification" element={<AgeVerificationCard />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<div className="card"><SignInCard /></div>} />
+          <Route path="/signup" element={<div className="card"><SignupCard /></div>} />
+          <Route path="/age-verification" element={<AgeVerificationCard />} />
+        </Routes>
       </div>
     </Router>
   );
