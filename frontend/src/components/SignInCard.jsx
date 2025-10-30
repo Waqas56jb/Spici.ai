@@ -9,7 +9,7 @@ function SignInCard() {
     <div className="signup">
       <h2 className="signup__title">Sign In to Your Account</h2>
 
-      <form className="signup__form" onSubmit={e => e.preventDefault()}>
+      <form className="signup__form" onSubmit={e => { e.preventDefault(); navigate('/terms-consent'); }}>
         <input className="input" type="text" placeholder="First Name" />
         <input className="input" type="email" placeholder="Email Address" />
         <input className="input" type="password" placeholder="Password" />

@@ -280,3 +280,59 @@ html, body, #root {
   color: #ff4da0;
   text-decoration: underline;
 }
+
+/* Terms & Consent */
+.terms {
+  width: 100%;
+  max-width: 940px;
+  margin: 12px auto 40px auto;
+  color: var(--text);
+  text-align: center;
+  padding: 0 16px;
+}
+.terms__title { font-size: 28px; font-weight: 800; margin: 8px 0 6px; }
+.terms__subtitle { color: var(--muted); font-size: 13.5px; margin-bottom: 18px; }
+
+.terms__panel {
+  margin: 0 auto 22px;
+  max-width: 720px;
+  background: #351022; /* maroon card like screenshot */
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  box-shadow: 0 16px 50px rgba(255, 31, 115, 0.18);
+  padding: 18px 18px 14px;
+  text-align: left;
+}
+.terms__panel-title { text-align: center; font-size: 14px; font-weight: 800; margin: 2px 0 12px; }
+.terms__panel-text { color: #e9e6ea; opacity: 0.9; font-size: 13px; line-height: 1.5; margin: 8px 4px; }
+.terms__bar {
+  margin: 14px auto 0;
+  width: 70%;
+  height: 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  background: linear-gradient(90deg, rgba(255,31,115,0.25), rgba(255,31,115,0.05));
+  color: #f4d7e4;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.terms__section-title { font-size: 14px; font-weight: 800; margin: 8px 0 10px; }
+
+.terms__checks {
+  max-width: 740px; margin: 0 auto; text-align: left;
+}
+.terms__check { display: flex; gap: 10px; align-items: flex-start; margin: 10px 0; color: #e0dce2; }
+.terms__check input { margin-top: 2px; width: 16px; height: 16px; }
+
+.terms__actions { max-width: 740px; margin: 18px auto 12px; display: flex; gap: 14px; justify-content: center; }
+.terms__decline { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #e6e1e7; height: 44px; padding: 0 22px; border-radius: 12px; }
+.terms__accept { background: linear-gradient(90deg, var(--primary), var(--primary-2)); color: #fff; height: 44px; padding: 0 26px; border-radius: 12px; }
+.terms__accept:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.terms__disclaimer { color: var(--muted); font-size: 12px; margin-top: 8px; }
+
+@media (max-width: 640px) {
+  .terms__panel { max-width: 92vw; }
+  .terms__checks, .terms__actions { max-width: 92vw; }
+  .terms__bar { width: 78%; }
+}
