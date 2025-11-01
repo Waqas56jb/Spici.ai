@@ -1,0 +1,123 @@
+.spici-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  min-width: 0;
+  max-width: 100vw;
+  box-sizing: border-box;
+  height: 60px;
+  background: #240917;
+  border-bottom: 2px solid #3e133a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 26px 0 18px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.header__logo {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 1.38rem; font-weight: 700;
+  cursor: pointer; user-select: none;
+}
+.header__logo-icon {
+  color: #ff179e;
+  width: 27px; height: 27px;
+  filter: drop-shadow(0 2px 7px #ff64b9a8);
+}
+.header__logo-text {
+  color: #fff; font-size: 1.31rem; font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 100%;
+}
+.header__nav-link {
+  color: #e9d8e0;
+  font-size: 1.09em;
+  font-weight: 500;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-bottom-color 0.15s, background-color 0.2s;
+  opacity: 0.88;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.header__nav-link:hover {
+  opacity: 1;
+  background-color: rgba(255, 40, 158, 0.1);
+}
+.header__nav-link--active {
+  color: #ff289e;
+  border-bottom: 2.5px solid #ff289e;
+  font-weight: 700;
+  opacity: 1;
+  background-color: rgba(255, 40, 158, 0.15);
+}
+
+.header__actions {
+  display: flex;
+  gap: 13px;
+}
+.header__login {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #ff379e60;
+  border-radius: 22px;
+  padding: 8px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border 0.18s, color 0.18s, background-color 0.18s;
+  white-space: nowrap;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__login:hover {
+  border: 1.7px solid #f926c6;
+  color: #e5aed8;
+  background-color: rgba(255, 38, 158, 0.1);
+}
+.header__signup {
+  background: linear-gradient(90deg, #ff237a 60%, #d6046e 100%);
+  color: #fff;
+  border-radius: 22px;
+  padding: 8px 28px;
+  font-size: 0.95rem;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 2px 16px #f935aa33;
+  cursor: pointer;
+  transition: filter 0.18s, transform 0.18s;
+  white-space: nowrap;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__signup:hover { 
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 650px) {
+  .spici-header {
+    height: 49px;
+    padding: 0 7px 0 3vw;
+  }
+  .header__nav {
+    gap: 14px; font-size: 97%;
+  }
+  .header__nav-link { font-size: 94%; padding-bottom: 2px; }
+  .header__logo-text { font-size: 1.01rem; }
+  .header__signup, .header__login { padding: 7px 13px; font-size: .93em; }
+}

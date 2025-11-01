@@ -336,3 +336,95 @@ html, body, #root {
   .terms__checks, .terms__actions { max-width: 92vw; }
   .terms__bar { width: 78%; }
 }
+
+.age-gate-bg {
+  position: fixed;
+  inset: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background:
+    radial-gradient(ellipse 80% 70% at 60% 32%, #55062a 0%, #140012 90%),
+    linear-gradient(180deg, #3f0625 0%, #220018 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.age-gate-card {
+  background: linear-gradient(180deg, rgba(58,10,38,0.95) 80%, #251326 120%);
+  box-shadow: 0 8px 56px #ff2894a7;
+  border-radius: 28px;
+  padding: 42px 38px 24px 38px;
+  text-align: center;
+  max-width: 430px;
+  width: 100%;
+  margin: 16px;
+  border: 1.9px solid #9e2e6a46;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.age-gate-title {
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  margin-bottom: 18px;
+}
+.age-gate-desc {
+  color: #ecebed;
+  opacity: 0.91;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 29px;
+}
+
+.age-gate-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.age-gate-yes {
+  background: linear-gradient(90deg, #ec1173 60%, #ce299a 100%);
+  color: #fff;
+  font-weight: 700;
+  min-width: 144px;
+  border-radius: 22px;
+  font-size: 15.2px;
+  height: 44px;
+  box-shadow: 0 4px 14px #83174b7e;
+}
+.age-gate-no {
+  background: transparent;
+  border: 1.2px solid #c887bc7c;
+  color: #fff;
+  font-weight: 600;
+  min-width: 144px;
+  border-radius: 22px;
+  font-size: 15.2px;
+  height: 44px;
+  box-shadow: none;
+}
+
+.age-gate-legal {
+  color: #b3b3b8;
+  font-size: 10.9px;
+  margin-top: 9px;
+}
+.age-gate-legal a {
+  color: #ec1d7f; text-decoration: underline; font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .age-gate-card { max-width: 96vw; padding: 18vw 3vw 7vw; }
+  .age-gate-title { font-size: 1.1rem; }
+  .age-gate-actions { flex-direction: column; gap: 12px; }
+  .age-gate-yes, .age-gate-no { font-size: 13px; min-width: 94px; height: 36px; }
+  .age-gate-desc { font-size: 12.3px; }
+}

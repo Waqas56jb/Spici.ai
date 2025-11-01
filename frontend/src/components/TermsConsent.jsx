@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function TermsConsent() {
   const [checks, setChecks] = useState({ a: false, b: false, c: false });
   const allChecked = checks.a && checks.b && checks.c;
+  const navigate = useNavigate();
 
   return (
     <div className="terms">
@@ -45,7 +47,9 @@ function TermsConsent() {
 
       <div className="terms__actions">
         <button className="btn terms__decline" type="button">✕ Decline</button>
-        <button className="btn terms__accept" type="button" disabled={!allChecked}>✓ Accept & Continue</button>
+        <button className="btn terms__accept" type="button" disabled={!allChecked} onClick={()=>{if(allChecked)navigate('/age-gate')}}>
+          ✓ Accept & Continue
+        </button>
       </div>
 
       <p className="terms__disclaimer">By using Spici.ai, you acknowledge that all interactions are with artificial intelligence and are for entertainment purposes only.</p>
