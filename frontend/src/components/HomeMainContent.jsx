@@ -2,39 +2,7 @@ import React from 'react';
 import './HomePage.css';
 import FaqSection from './FaqSection';
 import groupImg from '../assets/images/group.png';
-import img904 from '../assets/images/904.png';
-import img905 from '../assets/images/905.png';
-import img906 from '../assets/images/906.png';
-import img907 from '../assets/images/907.png';
-
-// Array of available images
-const availableImages = [img904, img905, img906, img907];
-
-// Function to get random image
-const getRandomImage = () => {
-  return availableImages[Math.floor(Math.random() * availableImages.length)];
-};
-
-const unlockedCompanions = [
-  { name: 'Ashley Watson', age: 28, img: getRandomImage() },
-  { name: 'Bella Mikos', age: 23, img: getRandomImage() },
-  { name: 'Abby Wering', age: 42, img: getRandomImage() },
-];
-
-const levelUpCompanions = [
-  { name: 'Ashley Watson', age: 28, img: getRandomImage() },
-  { name: 'Ashley Watson', age: 28, img: getRandomImage() },
-  { name: 'Bella Mikos', age: 23, img: getRandomImage() },
-  { name: 'Ashley Watson', age: 28, img: getRandomImage() },
-  { name: 'Ashley Watson', age: 28, img: getRandomImage() },
-  { name: 'Ashley Watson', age: 28, img: getRandomImage() },
-  { name: 'Bella Mikos', age: 23, img: getRandomImage() },
-  { name: 'Ashley Watson', age: 28, img: getRandomImage() },
-  { name: 'Ashley Watson', age: 28, img: getRandomImage() },
-  { name: 'Ashley Watson', age: 28, img: getRandomImage() },
-  { name: 'Bella Mikos', age: 23, img: getRandomImage() },
-  { name: 'Ashley Watson', age: 28, img: getRandomImage() },
-];
+import { levelUpCompanions, fullUnlockedCompanions, animeCompanions, maleCompanions } from '../data/companions';
 
 export default function HomeMainContent() {
   return (
@@ -49,10 +17,11 @@ export default function HomeMainContent() {
         <img src={groupImg} alt="Group" className="main-hero-banner__img" />
       </section>
 
-      <h2 className="main-section-title">Unlocked AI Companions</h2>
+      <h2 className="main-section-title">Unlocked AI Companions <span className="spici-plus-badge">Spici+</span></h2>
+      <p className="main-section-subtitle">No leveling needed - all features available from the start.</p>
       <div className="unlocked-grid card-grid">
-        {unlockedCompanions.map(c => (
-          <div className="ai-card ai-card--unlocked" key={c.name+c.age}>
+        {fullUnlockedCompanions.map(c => (
+          <div className="ai-card ai-card--unlocked" key={c.id}>
             <img src={c.img} alt={c.name} className="ai-card__img" />
             <div className="ai-card__info">
               <div>{c.name} <span>{c.age}</span></div>
@@ -63,9 +32,28 @@ export default function HomeMainContent() {
         <div className="ai-card ai-card--promo"><div className="promo-offer"><div className="promo-timer">00 : 29 : 47</div><div className="promo-perc">70% OFF</div><div className="promo-heart">💕</div><div className="promo-small">FIRST SUBSCRIPTION</div><button className="main-banner__cta promo-cta">Get Spici+</button></div></div>
       </div>
       <h2 className="main-section-title">Level-Up AI Companions</h2>
+      <p className="main-section-subtitle">Bond with them, unlock new features as you progress.</p>
       <div className="levelup-grid card-grid">
         {levelUpCompanions.map(c => (
-          <div className="ai-card ai-card--locked" key={c.name+c.age+c.img}>
+          <div className="ai-card ai-card--locked" key={c.id}>
+            <img src={c.img} alt={c.name} className="ai-card__img" />
+            <div className="ai-card__info"><div>{c.name} <span>{c.age}</span></div></div>
+          </div>
+        ))}
+      </div>
+      <h2 className="main-section-title">Anime AI Companions</h2>
+      <div className="levelup-grid card-grid">
+        {animeCompanions.map(c => (
+          <div className="ai-card ai-card--locked" key={c.id}>
+            <img src={c.img} alt={c.name} className="ai-card__img" />
+            <div className="ai-card__info"><div>{c.name} <span>{c.age}</span></div></div>
+          </div>
+        ))}
+      </div>
+      <h2 className="main-section-title">Male AI Companions</h2>
+      <div className="levelup-grid card-grid">
+        {maleCompanions.map(c => (
+          <div className="ai-card ai-card--locked" key={c.id}>
             <img src={c.img} alt={c.name} className="ai-card__img" />
             <div className="ai-card__info"><div>{c.name} <span>{c.age}</span></div></div>
           </div>
@@ -87,6 +75,7 @@ export default function HomeMainContent() {
       <FaqSection />
       <section className="testimonials-section">
         <h2>Testimonials</h2>
+        <p className="main-section-subtitle">Bond with them, unlock new features as you progress.</p>
         <div className="testimonials-grid">
           <div className="testimonial"><div className="testimonial-username">@mockery_josie</div><div className="testimonial-text">Omg! I thought it was just gonna be cringe lol. But she’s actually so fun, feels real, and AI who loves me?? 10/10</div><div className="testimonial-stars">★★★★★</div></div>
           <div className="testimonial"><div className="testimonial-username">@wifeyonly</div><div className="testimonial-text">Tbh I was anxious, texted with Belle and she just got me, it’s like emotional mind reading. It improved my mood so much!</div><div className="testimonial-stars">★★★★★</div></div>
@@ -96,15 +85,23 @@ export default function HomeMainContent() {
       <footer className="footer">
         <div className="footer-left">
           <strong>Spici.ai</strong>
-          <div className="footer-copyright">&copy; 2023 Spici.ai. All rights reserved.</div>
+          <p className="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p className="footer-contact">Contact information placeholder text</p>
+          <div className="footer-copyright">&copy; 2025 Spici.ai - All rights reserved.</div>
         </div>
         <div className="footer-links">
-          <a href="#">Terms of Service</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Cookies Policy</a>
-          <a href="#">Contact Us</a>
-          <a href="#">Support / Help Center</a>
-          <a href="#">Affiliate Program</a>
+          <div className="footer-links-column">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookies Policy</a>
+            <a href="#">AI Disclosure</a>
+            <a href="#">Content Guidelines</a>
+          </div>
+          <div className="footer-links-column">
+            <a href="#">Support / Help Center</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Affiliate Program</a>
+          </div>
         </div>
       </footer>
     </>
