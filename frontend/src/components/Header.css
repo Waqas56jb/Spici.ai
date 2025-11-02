@@ -109,15 +109,88 @@
   transform: translateY(-1px);
 }
 
-@media (max-width: 650px) {
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .header__nav {
+    gap: 24px;
+  }
+  .header__nav-link {
+    font-size: 1em;
+    padding: 6px 10px;
+  }
+}
+
+/* Large Mobile / Small Tablet */
+@media (max-width: 768px) {
   .spici-header {
-    height: 49px;
-    padding: 0 7px 0 3vw;
+    height: 56px;
+    padding: 0 16px;
+  }
+  .header__logo-text {
+    font-size: 1.15rem;
+  }
+  .header__logo-icon {
+    width: 24px;
+    height: 24px;
   }
   .header__nav {
-    gap: 14px; font-size: 97%;
+    gap: 16px;
   }
-  .header__nav-link { font-size: 94%; padding-bottom: 2px; }
-  .header__logo-text { font-size: 1.01rem; }
-  .header__signup, .header__login { padding: 7px 13px; font-size: .93em; }
+  .header__nav-link {
+    font-size: 0.95em;
+    padding: 6px 8px;
+  }
+  .header__login,
+  .header__signup {
+    padding: 6px 18px;
+    font-size: 0.9em;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .spici-header {
+    height: 52px;
+    padding: 0 12px;
+  }
+  .header__logo-text {
+    font-size: 1.05rem;
+  }
+  .header__logo-icon {
+    width: 22px;
+    height: 22px;
+  }
+  .header__nav {
+    gap: 12px;
+    display: none; /* Hide nav on very small screens, or use hamburger menu */
+  }
+  .header__nav-link {
+    font-size: 0.9em;
+    padding: 4px 6px;
+  }
+  .header__login,
+  .header__signup {
+    padding: 6px 14px;
+    font-size: 0.85em;
+    min-height: 32px;
+  }
+  .header__actions {
+    gap: 8px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+  .spici-header {
+    height: 50px;
+    padding: 0 8px;
+  }
+  .header__logo-text {
+    font-size: 0.95rem;
+  }
+  .header__login,
+  .header__signup {
+    padding: 5px 12px;
+    font-size: 0.8em;
+  }
 }

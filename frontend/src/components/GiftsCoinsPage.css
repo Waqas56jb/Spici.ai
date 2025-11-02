@@ -1,0 +1,360 @@
+.gifts-coins-layout {
+  display: block;
+  position: relative;
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: #0f0510;
+  box-sizing: border-box;
+}
+
+.gifts-coins-main {
+  position: fixed;
+  top: 60px;
+  left: 305px;
+  right: 0;
+  width: calc(100vw - 305px);
+  max-width: calc(100vw - 305px);
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 48px 40px;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gifts-coins-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Top Banner */
+.gifts-coins-banner {
+  background: linear-gradient(135deg, rgba(255, 23, 158, 0.2) 0%, rgba(139, 69, 139, 0.2) 100%);
+  border: 2px solid rgba(255, 23, 158, 0.3);
+  border-radius: 24px;
+  padding: 48px 40px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 32px rgba(255, 23, 158, 0.15);
+}
+
+.gifts-coins-banner__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.gifts-coins-banner__text {
+  flex: 1;
+}
+
+.gifts-coins-banner__title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.gifts-coins-banner__bold {
+  font-weight: 900;
+  color: #ff179e;
+}
+
+.gifts-coins-banner__image {
+  flex-shrink: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.gifts-coins-banner__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Bottom Panels */
+.gifts-coins-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.gifts-coins-panel {
+  background: linear-gradient(135deg, rgba(255, 23, 158, 0.15) 0%, rgba(139, 69, 139, 0.15) 100%);
+  border: 2px solid rgba(255, 23, 158, 0.3);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(255, 23, 158, 0.1);
+}
+
+.gifts-coins-panel__title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.01em;
+}
+
+/* Benefits Panel */
+.gifts-coins-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gifts-coins-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.gifts-coins-benefit__icon {
+  color: #ff179e;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.gifts-coins-benefit__text {
+  font-size: 1.1rem;
+  color: #ffffff;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.gifts-coins-benefit__text strong {
+  font-weight: 800;
+  color: #ff179e;
+}
+
+/* Coin Packs Panel */
+.gifts-coins-packs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gifts-coins-pack {
+  background: rgba(26, 13, 24, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.gifts-coins-pack:hover {
+  background: rgba(26, 13, 24, 0.8);
+  border-color: rgba(255, 23, 158, 0.4);
+  transform: translateX(4px);
+}
+
+.gifts-coins-pack--selected {
+  background: rgba(255, 23, 158, 0.2);
+  border-color: rgba(255, 23, 158, 0.6);
+  box-shadow: 0 4px 16px rgba(255, 23, 158, 0.3);
+}
+
+.gifts-coins-pack--best-value {
+  border-color: rgba(251, 191, 36, 0.5);
+  background: rgba(26, 13, 24, 0.7);
+}
+
+.gifts-coins-pack--best-value:hover {
+  border-color: rgba(251, 191, 36, 0.7);
+}
+
+.gifts-coins-pack__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(139, 69, 139, 0.9);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.gifts-coins-pack__header {
+  flex-shrink: 0;
+  min-width: 140px;
+}
+
+.gifts-coins-pack__name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.gifts-coins-pack__info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.gifts-coins-pack__coins {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gifts-coins-pack__coin-icon {
+  color: #fbbf24;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 8px rgba(251, 191, 36, 0.4));
+}
+
+.gifts-coins-pack__amount {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.gifts-coins-pack__bonus {
+  font-size: 0.95rem;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.gifts-coins-pack__bonus--none {
+  color: #b8b8b8;
+}
+
+.gifts-coins-pack__price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ff179e;
+  flex-shrink: 0;
+  min-width: 80px;
+  text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+  .gifts-coins-content {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .gifts-coins-panels {
+    grid-template-columns: 1fr;
+  }
+  .gifts-coins-banner__content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .gifts-coins-banner__image {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .gifts-coins-main {
+    left: 280px;
+    width: calc(100vw - 280px);
+    max-width: calc(100vw - 280px);
+    padding: 32px 24px;
+  }
+  .gifts-coins-banner__title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gifts-coins-main {
+    left: 0;
+    top: 60px;
+    width: 100vw;
+    max-width: 100vw;
+    padding: 24px 16px;
+    padding-top: 140px;
+  }
+  .gifts-coins-banner {
+    padding: 32px 24px;
+  }
+  .gifts-coins-banner__title {
+    font-size: 2rem;
+  }
+  .gifts-coins-banner__image {
+    width: 200px;
+    height: 200px;
+  }
+  .gifts-coins-panel {
+    padding: 24px;
+  }
+  .gifts-coins-pack {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .gifts-coins-pack__info {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .gifts-coins-pack__price {
+    width: 100%;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .gifts-coins-main {
+    top: 52px;
+    padding: 20px 12px;
+    padding-top: 132px;
+  }
+  .gifts-coins-banner {
+    padding: 24px 20px;
+  }
+  .gifts-coins-banner__title {
+    font-size: 1.75rem;
+  }
+  .gifts-coins-banner__image {
+    width: 180px;
+    height: 180px;
+  }
+  .gifts-coins-panel {
+    padding: 20px;
+  }
+  .gifts-coins-panel__title {
+    font-size: 1.5rem;
+  }
+  .gifts-coins-benefit__text {
+    font-size: 1rem;
+  }
+  .gifts-coins-pack__name {
+    font-size: 1.1rem;
+  }
+  .gifts-coins-pack__amount {
+    font-size: 1.2rem;
+  }
+  .gifts-coins-pack__price {
+    font-size: 1.2rem;
+  }
+}

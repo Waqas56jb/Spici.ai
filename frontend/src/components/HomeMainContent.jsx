@@ -38,7 +38,7 @@ const levelUpCompanions = [
 
 export default function HomeMainContent() {
   return (
-    <div className="main-content">
+    <>
       {/* New Banner section matching user art */}
       <section className="main-hero-banner">
         <div className="main-hero-banner__content">
@@ -107,7 +107,7 @@ export default function HomeMainContent() {
           <a href="#">Affiliate Program</a>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
  

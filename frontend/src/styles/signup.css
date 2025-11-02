@@ -26,7 +26,8 @@ html, body, #root {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 8px;
+  padding: 80px 8px 20px 8px;
+  box-sizing: border-box;
 }
 
 /* Logo */
@@ -56,7 +57,7 @@ html, body, #root {
   max-width: 410px;
   min-width: 0;
   box-sizing: border-box;
-  padding: 34px 22px 26px;
+  padding: 34px 28px 26px;
   border-radius: 18.5px;
   background: linear-gradient(180deg, var(--card-start) 70%, var(--card-end) 100%);
   box-shadow: 0 0 40px 0 var(--primary), 0 5px 17px 10px #2a0819d8;
@@ -68,9 +69,17 @@ html, body, #root {
 }
 @media (max-width: 500px) {
   .card {
-    max-width: 99vw;
-    padding: 18px 4vw;
+    max-width: calc(100vw - 32px);
+    padding: 28px 20px 24px;
     border-radius: 14px;
+    margin: 0 16px;
+  }
+}
+@media (max-width: 400px) {
+  .card {
+    max-width: calc(100vw - 24px);
+    padding: 24px 16px 20px;
+    margin: 0 12px;
   }
 }
 
@@ -78,8 +87,10 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 100%;
   align-items: stretch;
   gap: 0;
+  box-sizing: border-box;
 }
 .signup__title {
   text-align: center;
@@ -98,9 +109,13 @@ html, body, #root {
   display: grid;
   gap: 12px;
   margin-bottom: 18px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .input {
   width: 100%;
+  max-width: 100%;
   height: 44px;
   border-radius: 10px;
   background: var(--input-bg);
@@ -110,6 +125,9 @@ html, body, #root {
   outline: none;
   font-size: 1rem;
   letter-spacing: 0.01em;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
 }
 .input::placeholder {
   color: #9a9aa3;
@@ -118,30 +136,57 @@ html, body, #root {
 .input:focus {
   border-color: rgba(255, 31, 115, 0.5);
   box-shadow: 0 0 0 3px rgba(255,31,115,0.12);
+  outline: none;
 }
 
 .dob {
   display: grid;
   gap: 10px;
   grid-template-columns: 1fr 1.2fr 1fr;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .select {
+  width: 100%;
+  max-width: 100%;
   height: 44px;
   border-radius: 10px;
   background: var(--input-bg);
   border: 1px solid var(--input-border);
   padding: 0 12px;
   color: var(--text);
+  box-sizing: border-box;
+  outline: none;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.select:focus {
+  border-color: rgba(255, 31, 115, 0.5);
+  box-shadow: 0 0 0 3px rgba(255,31,115,0.12);
+  outline: none;
 }
 
 .btn {
+  width: 100%;
+  max-width: 100%;
   height: 46px;
   border: none;
   border-radius: 999px;
   font-weight: 700;
   cursor: pointer;
   min-width: 160px;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+}
+@media (max-width: 480px) {
+  .btn {
+    height: 44px;
+    font-size: 0.9rem;
+  }
 }
 
 .btn--primary {
@@ -163,6 +208,15 @@ html, body, #root {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin: 8px 0 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+@media (max-width: 480px) {
+  .social {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 }
 .btn--social {
   display: inline-flex;
@@ -176,6 +230,23 @@ html, body, #root {
   border-radius: 8px;
   height: 39px;
   font-weight: 500;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 480px) {
+  .btn--social {
+    font-size: 0.9rem;
+    height: 42px;
+    gap: 8px;
+  }
+  .btn--social span {
+    font-size: 0.85rem;
+  }
 }
 .btn--social:hover { background: rgba(255,255,255,0.06); }
 
@@ -198,7 +269,23 @@ html, body, #root {
 
 /* Card container spacing for larger screens */
 @media (min-width: 768px) {
-  .app { justify-content: center; }
+  .app { 
+    justify-content: center; 
+    padding: 80px 8px 20px 8px;
+  }
+}
+
+/* Responsive padding for mobile */
+@media (max-width: 768px) {
+  .app {
+    padding: 70px 8px 20px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 65px 8px 20px 8px;
+  }
 }
 
 /* Make card feel elevated with subtle outer glow */
