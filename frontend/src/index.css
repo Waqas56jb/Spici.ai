@@ -1,5 +1,35 @@
+:root {
+  /* Core brand palette from Figma */
+  --black: #000000;
+  --white: #ffffff;
+  --surface-1: #13020a;
+  --surface-2: #1b0a16;
+  --surface-3: #230f19;
+  --text-weak: #d9d9d9;
+
+  /* Pinks/Magentas */
+  --pink-500: #F90680;
+  --pink-600: #DD0672;
+  --pink-700: #D30D81;
+  --pink-800: #94044C;
+  --magenta-700: #7A1D53;
+  --magenta-800: #710946;
+  --magenta-900: #5C0639;
+  --purple-900: #22101B;
+
+  /* Accents */
+  --gold-500: #FFC700; /* alt: #FACC15 */
+  --success-500: #22C55E;
+  --danger-500: #EF4444;
+
+  /* Gradients */
+  --grad-primary: linear-gradient(135deg, var(--pink-500) 0%, var(--pink-600) 100%);
+  --grad-hero: linear-gradient(90deg, #d21364 15%, #fd1b9a 55%, #fc22a7 100%);
+  --grad-sidebar: linear-gradient(180deg, #F90680 0%, #DD0672 70%, #811759 100%);
+}
+
 html, body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -11,6 +41,8 @@ html, body {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   position: relative;
+  background: var(--surface-1);
+  color: var(--white);
 }
 
 *, *::before, *::after {

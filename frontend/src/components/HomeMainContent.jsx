@@ -11,7 +11,7 @@ export default function HomeMainContent() {
       <section className="main-hero-banner">
         <div className="main-hero-banner__content">
           <h1 className="main-hero-banner__title">The AI girlfriend<br />experience – reimagined.</h1>
-          <p className="main-hero-banner__subtitle">Flirt. Connect. Go deeper.</p>
+          <p className="main-hero-banner__subtitle" style={{'color': '#ffffffb7'}}>Flirt. Connect. Go deeper.</p>
           <button className="main-hero-banner__cta">Start bonding now.</button>
         </div>
         <img src={groupImg} alt="Group" className="main-hero-banner__img" />

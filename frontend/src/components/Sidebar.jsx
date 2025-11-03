@@ -28,8 +28,8 @@ export default function Sidebar({ isOpen = true, onToggle, onSpiciClick }) {
   };
 
   return (
-    <aside className={`spici-sidebar ${isOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-      <div className="sidebar-gradient" />
+    <aside className={`spici-sidebar ${isOpen ? 'sidebar-open' : 'sidebar-closed'}`} style={{background: 'linear-gradient(180deg, #ff25a0 , #22101B , #22101B , #22101B 100%)'}}>
+      <div className="" />
       <button className="sidebar-hamburger" onClick={onToggle}>
         <FaBars />
       </button>
@@ -125,11 +125,11 @@ export default function Sidebar({ isOpen = true, onToggle, onSpiciClick }) {
         >
           <FaGem className="sidebar-link-icon sidebar-link-icon--gem" />
           <span>Become Spici+</span>
-          <span className="sidebar-spici-offer">70% OFF</span>
+          <span className="sidebar-spici-offer" style={{paddingLeft: '5px', paddingRight: '5px'}}>70% OFF</span>
         </div>
       </nav>
-      <div className="sidebar-secondarynav">
-        <div className="sidebar-row">
+      <div className="sidebar-secondarynav" style={{paddingLeft: '50px'}}>
+        <div className="sidebar-row" style={{display: 'flex', flexDirection: 'column', fontSize: '20px', fontWeight: 'semibold'}}>
           <span 
             className={`sidebar-link sidebar-link--tiny ${isActive('/help-center') ? 'sidebar-link--active' : ''}`}
             onClick={(e) => {
@@ -150,7 +150,7 @@ export default function Sidebar({ isOpen = true, onToggle, onSpiciClick }) {
           </span>
           <span className="sidebar-link sidebar-link--tiny"><FaUsers /> Affiliate</span>
         </div>
-        <div className="sidebar-row">
+        <div className="sidebar-row" style={{display: 'flex', flexDirection: 'column', fontSize: '20px', fontWeight: 'semibold'}}>
           <span 
             className={`sidebar-link sidebar-link--tiny ${isActive('/settings') ? 'sidebar-link--active' : ''}`}
             onClick={(e) => {

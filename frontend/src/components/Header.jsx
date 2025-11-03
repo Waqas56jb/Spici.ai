@@ -2,6 +2,7 @@ import React from 'react';
 import { FaFire } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Header.css';
+import Logo from './Logo';
 
 function Header() {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ function Header() {
   return (
     <header className="spici-header">
       <div className="header__logo" onClick={() => navigate('/') }>
+        {/* If/when a branded logo asset is available, swap into Logo component via props */}
         <FaFire className="header__logo-icon" />
         <span className="header__logo-text">Spici.ai</span>
       </div>
