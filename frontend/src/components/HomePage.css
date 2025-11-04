@@ -1082,8 +1082,9 @@
 }
 
 .sidebar-secondarynav {
-  width: 88%;
+  width: 78%;
   margin-top: auto;
+  margin-right: auto;
   margin-bottom: 25px;
   z-index: 2;
   padding-bottom: 24px;

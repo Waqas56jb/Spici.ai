@@ -128,7 +128,7 @@ export default function Sidebar({ isOpen = true, onToggle, onSpiciClick }) {
           <span className="sidebar-spici-offer" style={{paddingLeft: '5px', paddingRight: '5px'}}>70% OFF</span>
         </div>
       </nav>
-      <div className="sidebar-secondarynav" style={{paddingLeft: '50px'}}>
+      <div className="sidebar-secondarynav" style={{paddingLeft: '34px'}}>
         <div className="sidebar-row" style={{display: 'flex', flexDirection: 'column', fontSize: '20px', fontWeight: 'semibold'}}>
           <span 
             className={`sidebar-link sidebar-link--tiny ${isActive('/help-center') ? 'sidebar-link--active' : ''}`}
