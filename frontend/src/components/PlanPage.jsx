@@ -8,13 +8,14 @@ import img904 from '../assets/images/904.png';
 import img905 from '../assets/images/905.png';
 import img906 from '../assets/images/906.png';
 import img907 from '../assets/images/907.png';
+import image from '../assets/images/image 3.png';
 
 const chatImages = [img904, img905, img906, img907];
 
 const plans = [
-  { id: 1, name: '1 Month', price: '$19.99/month', billed: '$119.88', discount: '35% off' },
-  { id: 2, name: '3 Months', price: '$14.99/month', billed: '$119.88', discount: '50% off', popular: true },
-  { id: 3, name: '12 Months', price: '$9.99/month', billed: '$119.88', discount: '70% off', best: true },
+  { id: 1, name: '1 Month', price: '$19.99', billed: '$119.88', discount: '35% off' },
+  { id: 2, name: '3 Months', price: '$14.99', billed: '$119.88', discount: '50% off', popular: true },
+  { id: 3, name: '12 Months', price: '$9.99', billed: '$119.88', discount: '70% off', best: true },
 ];
 
 const benefits = [
@@ -49,9 +50,9 @@ export default function PlanPage() {
             {/* Featured Image Section */}
             <div className="plan-featured">
               <div className="plan-featured__image">
-                <img src={chatImages[0]} alt="Featured" />
+                <img src={image} alt="Featured" />
                 <div className="plan-featured__overlay">
-                  <div className="plan-featured__badge">Get an Exclusive Discount Only Today!</div>
+                  <div className="plan-featured__badge" style={{color: '#F32A5D'}}>Get an Exclusive Discount Only Today!</div>
                   <div className="plan-featured__text">Up to 70% off for first subscription.</div>
                 </div>
               </div>
@@ -69,7 +70,7 @@ export default function PlanPage() {
                   {plan.popular && <div className="plan-card__popular">Most Popular</div>}
                   <div className="plan-card__discount">{plan.discount}</div>
                   <h3 className="plan-card__name">{plan.name}</h3>
-                  <div className="plan-card__price">{plan.price}</div>
+                  <div className="plan-card__price">{plan.price} <span style={{color: '#9CA3AF', fontSize: '20px'}}>/month</span></div>
                   <div className="plan-card__billed">Billed as {plan.billed}</div>
                 </div>
               ))}
@@ -80,11 +81,13 @@ export default function PlanPage() {
           <div className="plan-payment">
             <button
               className={`plan-payment__btn ${paymentMethod === 'card' ? 'plan-payment__btn--active' : ''}`}
+              style={{ flex: '1' }}
               onClick={() => setPaymentMethod('card')}
             >
               Pay with Card
             </button>
             <button
+              style={{ flex: '1' }}
               className={`plan-payment__btn plan-payment__btn--crypto ${paymentMethod === 'crypto' ? 'plan-payment__btn--active' : ''}`}
               onClick={() => setPaymentMethod('crypto')}
             >
@@ -106,9 +109,9 @@ export default function PlanPage() {
           </div>
         </div>
       </main>
-      <SpiciReactivationModal 
-        isOpen={showSpiciReactivation} 
-        onClose={() => setShowSpiciReactivation(false)} 
+      <SpiciReactivationModal
+        isOpen={showSpiciReactivation}
+        onClose={() => setShowSpiciReactivation(false)}
       />
     </div>
   );

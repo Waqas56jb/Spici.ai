@@ -21,10 +21,13 @@ export default function HomeMainContent() {
       <p className="main-section-subtitle">No leveling needed - all features available from the start.</p>
       <div className="unlocked-grid card-grid">
         {fullUnlockedCompanions.map(c => (
-          <div className="ai-card ai-card--unlocked" key={c.id}>
-            <img src={c.img} alt={c.name} className="ai-card__img" />
-            <div className="ai-card__info">
-              <div>{c.name} <span>{c.age}</span></div>
+          <div className="ai-card ai-card--unlocked" style={{height: '380px'}} key={c.id}>
+            <img src={c.img} alt={c.name} className="ai-card__img" style={{position: 'absolute', height: '100%', width: '100%', objectFit: 'cover'}} />
+            <div className="ai-card__info" style={{zIndex : 10, display: 'flex' , justifyContent: 'center', alignItems: 'end', height: '100%',}}>
+              <div>
+                <div>{c.name} <span>{c.age}</span></div>
+                <span style={{color: '#e5e7ebcc', fontSize: '12px'}}>Up to 70% off for first subscription.</span>
+              </div>
             </div>
           </div>
         ))}
@@ -35,27 +38,31 @@ export default function HomeMainContent() {
       <p className="main-section-subtitle">Bond with them, unlock new features as you progress.</p>
       <div className="levelup-grid card-grid">
         {levelUpCompanions.map(c => (
-          <div className="ai-card ai-card--locked" key={c.id}>
-            <img src={c.img} alt={c.name} className="ai-card__img" />
-            <div className="ai-card__info"><div>{c.name} <span>{c.age}</span></div></div>
+          <div className="ai-card ai-card--locked" style={{height: '380px' ,position: 'relative'}} key={c.id}>
+            <img src={c.img} alt={c.name} className="ai-card__img" style={{zIndex : 5, display: 'flex' , justifyContent: 'center', alignItems: 'end', height: '100%', width: '100%' }} />
+            <div className="ai-card__info" style={{zIndex : 10, bottom: '10px', position: 'absolute', width:'100%', display: 'flex' , justifyContent: 'center', alignItems: 'end', height: '100%',}}><div>{c.name} <span>{c.age}</span></div></div>
           </div>
         ))}
       </div>
       <h2 className="main-section-title">Anime AI Companions</h2>
       <div className="levelup-grid card-grid">
         {animeCompanions.map(c => (
-          <div className="ai-card ai-card--locked" key={c.id}>
-            <img src={c.img} alt={c.name} className="ai-card__img" />
-            <div className="ai-card__info"><div>{c.name} <span>{c.age}</span></div></div>
+          <div className="ai-card ai-card--locked" style={{height: '380px'}} key={c.id}>
+            <img src={c.img} alt={c.name} className="ai-card__img" style={{position: 'absolute', height: '100%', width: '100%', objectFit: 'cover'}} />
+            <div className="ai-card__info" style={{zIndex : 10, display: 'flex' , justifyContent: 'center', alignItems: 'end', height: '100%',}}>
+              <div>{c.name} <span>{c.age}</span></div>
+            </div>
           </div>
         ))}
       </div>
       <h2 className="main-section-title">Male AI Companions</h2>
       <div className="levelup-grid card-grid">
         {maleCompanions.map(c => (
-          <div className="ai-card ai-card--locked" key={c.id}>
-            <img src={c.img} alt={c.name} className="ai-card__img" />
-            <div className="ai-card__info"><div>{c.name} <span>{c.age}</span></div></div>
+          <div className="ai-card ai-card--locked" style={{height: '380px'}} key={c.id}>
+            <img src={c.img} alt={c.name} className="ai-card__img" style={{position: 'absolute', height: '100%', width: '100%', objectFit: 'cover'}} />
+            <div className="ai-card__info" style={{zIndex : 10, display: 'flex' , justifyContent: 'center', alignItems: 'end', height: '100%',}}>
+              <div>{c.name} <span>{c.age}</span></div>
+            </div>
           </div>
         ))}
       </div>

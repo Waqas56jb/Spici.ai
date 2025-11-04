@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
+import {
   FaRocket, FaGem, FaGift, FaTrophy, FaCoins, FaShieldAlt, FaCheckCircle,
   FaPlus, FaMinus, FaMedal, FaCreditCard, FaCcVisa, FaCcMastercard,
   FaCcAmex, FaCcPaypal
@@ -8,6 +8,11 @@ import {
 import Sidebar from './Sidebar';
 import Header from './Header';
 import './CoinsPage.css';
+import group from '../assets/images/dd.png';
+import group2 from '../assets/images/100.2 1.png';
+import group3 from '../assets/images/ddd.png';
+import group4 from '../assets/images/dddd.png';
+import group5 from '../assets/images/ddddd.png';
 
 export default function CoinsPage() {
   const navigate = useNavigate();
@@ -97,10 +102,11 @@ export default function CoinsPage() {
         <div className="coins-content">
           {/* Current Coins Display */}
           <div className="coins-banner">
-            <div className="coins-banner__content">
+            <div className="coins-banner__content" style={{ fontSize: '22px', fontWeight: '600' }}>
               <span className="coins-banner__text">You have</span>
-              <FaCoins className="coins-banner__icon" />
-              <span className="coins-banner__amount">{currentCoins.toLocaleString()} Coins</span>
+              {/* <FaCoins className="coins-banner__icon" style={{color : '#FFC700'}} /> */}
+              <img src={group} style={{ height: '50px' }} alt="" />
+              <span className="coins-banner__amount" style={{ color: '#FFC700' }}>{currentCoins.toLocaleString()} <span style={{ color: '#ffffff' }}>Coins</span></span>
             </div>
           </div>
 
@@ -111,8 +117,10 @@ export default function CoinsPage() {
               return (
                 <div key={index} className="coins-feature-card">
                   <IconComponent className="coins-feature-card__icon" />
-                  <h3 className="coins-feature-card__title">{feature.title}</h3>
-                  <p className="coins-feature-card__description">{feature.description}</p>
+                  <div>
+                    <h3 className="coins-feature-card__title">{feature.title}</h3>
+                    <p className="coins-feature-card__description">{feature.description}</p>
+                  </div>
                 </div>
               );
             })}
@@ -121,8 +129,8 @@ export default function CoinsPage() {
           {/* Coin Purchase Options */}
           <div className="coins-packages">
             {coinPackages.map((pkg) => (
-              <div 
-                key={pkg.id} 
+              <div
+                key={pkg.id}
                 className={`coins-package ${pkg.popular ? 'coins-package--popular' : ''} ${pkg.bestValue ? 'coins-package--best-value' : ''} ${selectedPackage === pkg.id ? 'coins-package--selected' : ''}`}
                 onClick={() => setSelectedPackage(pkg.id)}
               >
@@ -132,41 +140,44 @@ export default function CoinsPage() {
                 {pkg.bestValue && (
                   <div className="coins-package__badge coins-package__badge--best-value">Best Value</div>
                 )}
-                
+
                 <div className="coins-package__icon-wrapper">
-                  {pkg.icon === 'single' && <FaCoins className="coins-package__icon coins-package__icon--single" />}
+                  {pkg.icon === 'single' && <img src={group2} alt="" />}
                   {pkg.icon === 'stack' && (
                     <div className="coins-package__icon-stack">
+                      <img src={group3} alt="" />
+                      {/* <FaCoins className="coins-package__icon" />
                       <FaCoins className="coins-package__icon" />
-                      <FaCoins className="coins-package__icon" />
-                      <FaCoins className="coins-package__icon" />
+                      <FaCoins className="coins-package__icon" /> */}
                     </div>
                   )}
                   {pkg.icon === 'chest-open' && (
-                    <div className="coins-package__icon-chest coins-package__icon-chest--open">
+                    <div className="coins-package__icon-chest">
+                      <img src={group4} alt="" />
+                      {/* <FaCoins className="coins-package__icon" />
                       <FaCoins className="coins-package__icon" />
-                      <FaCoins className="coins-package__icon" />
-                      <FaCoins className="coins-package__icon" />
+                      <FaCoins className="coins-package__icon" /> */}
                     </div>
                   )}
                   {pkg.icon === 'chest-closed' && (
-                    <div className="coins-package__icon-chest coins-package__icon-chest--closed">
-                      <FaCoins className="coins-package__icon" />
+                    <div className="coins-package__icon-chest">
+                      {/* <FaCoins className="coins-package__icon" /> */}
+                      <img src={group5} alt="" />
                     </div>
                   )}
                 </div>
-                
+
                 <div className="coins-package__info">
                   <div className="coins-package__amount">
                     {pkg.coins.toLocaleString()} Coins
                     {pkg.bonus > 0 && (
-                      <span className="coins-package__bonus"> + {pkg.bonus} Bonus</span>
+                      <p className="coins-package__bonus" style={{color: '#FFC700'}}> + {pkg.bonus} Bonus</p>
                     )}
                   </div>
                   <div className="coins-package__price">${pkg.price.toFixed(2)}</div>
                 </div>
-                
-                <button 
+
+                <button
                   className="coins-package__button"
                   onClick={(e) => {
                     e.stopPropagation();
@@ -203,7 +214,7 @@ export default function CoinsPage() {
 
             {/* Recent Activity Section */}
             <div className="coins-section coins-section--activity">
-              <h3 className="coins-section__title">Recent Activity</h3>
+              <h3 className="coins-section__title" style={{textAlign: 'center'}}>Recent Activity</h3>
               <div className="coins-section__content">
                 <div className="coins-activity-list">
                   {recentActivity.map((activity, index) => {
