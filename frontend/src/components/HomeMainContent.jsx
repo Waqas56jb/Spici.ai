@@ -22,11 +22,16 @@ export default function HomeMainContent() {
       <div className="unlocked-grid card-grid">
         {fullUnlockedCompanions.map(c => (
           <div className="ai-card ai-card--unlocked" style={{height: '380px'}} key={c.id}>
-            <img src={c.img} alt={c.name} className="ai-card__img" style={{position: 'absolute', height: '100%', width: '100%', objectFit: 'cover'}} />
-            <div className="ai-card__info" style={{zIndex : 10, display: 'flex' , justifyContent: 'center', alignItems: 'end', height: '100%',}}>
-              <div>
-                <div>{c.name} <span>{c.age}</span></div>
-                <span style={{color: '#e5e7ebcc', fontSize: '12px'}}>Up to 70% off for first subscription.</span>
+            <div className="ai-card__favorite">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <img src={c.img} alt={c.name} className="ai-card__img" />
+            <div className="ai-card__overlay">
+              <div className="ai-card__info">
+                <div className="ai-card__name-age">{c.name} <span>{c.age}</span></div>
+                <p className="ai-card__bio line__clamp">{c.bio}</p>
               </div>
             </div>
           </div>
@@ -39,8 +44,18 @@ export default function HomeMainContent() {
       <div className="levelup-grid card-grid">
         {levelUpCompanions.map(c => (
           <div className="ai-card ai-card--locked" style={{height: '380px' ,position: 'relative'}} key={c.id}>
-            <img src={c.img} alt={c.name} className="ai-card__img" style={{zIndex : 5, display: 'flex' , justifyContent: 'center', alignItems: 'end', height: '100%', width: '100%' }} />
-            <div className="ai-card__info" style={{zIndex : 10, bottom: '10px', position: 'absolute', width:'100%', display: 'flex' , justifyContent: 'center', alignItems: 'end', height: '100%',}}><div>{c.name} <span>{c.age}</span></div></div>
+            <div className="ai-card__favorite">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <img src={c.img} alt={c.name} className="ai-card__img" />
+            <div className="ai-card__overlay">
+              <div className="ai-card__info">
+                <div className="ai-card__name-age">{c.name} <span>{c.age}</span></div>
+                <p className="ai-card__bio line__clamp">{c.bio}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
@@ -48,9 +63,17 @@ export default function HomeMainContent() {
       <div className="levelup-grid card-grid">
         {animeCompanions.map(c => (
           <div className="ai-card ai-card--locked" style={{height: '380px'}} key={c.id}>
-            <img src={c.img} alt={c.name} className="ai-card__img" style={{position: 'absolute', height: '100%', width: '100%', objectFit: 'cover'}} />
-            <div className="ai-card__info" style={{zIndex : 10, display: 'flex' , justifyContent: 'center', alignItems: 'end', height: '100%',}}>
-              <div>{c.name} <span>{c.age}</span></div>
+            <div className="ai-card__favorite">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <img src={c.img} alt={c.name} className="ai-card__img" />
+            <div className="ai-card__overlay">
+              <div className="ai-card__info">
+                <div className="ai-card__name-age">{c.name} <span>{c.age}</span></div>
+                <p className="ai-card__bio line__clamp">{c.bio}</p>
+              </div>
             </div>
           </div>
         ))}
@@ -59,9 +82,17 @@ export default function HomeMainContent() {
       <div className="levelup-grid card-grid">
         {maleCompanions.map(c => (
           <div className="ai-card ai-card--locked" style={{height: '380px'}} key={c.id}>
-            <img src={c.img} alt={c.name} className="ai-card__img" style={{position: 'absolute', height: '100%', width: '100%', objectFit: 'cover'}} />
-            <div className="ai-card__info" style={{zIndex : 10, display: 'flex' , justifyContent: 'center', alignItems: 'end', height: '100%',}}>
-              <div>{c.name} <span>{c.age}</span></div>
+            <div className="ai-card__favorite">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <img src={c.img} alt={c.name} className="ai-card__img" />
+            <div className="ai-card__overlay">
+              <div className="ai-card__info">
+                <div className="ai-card__name-age">{c.name} <span>{c.age}</span></div>
+                <p className="ai-card__bio line__clamp">{c.bio}</p>
+              </div>
             </div>
           </div>
         ))}
