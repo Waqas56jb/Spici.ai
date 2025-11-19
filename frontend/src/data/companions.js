@@ -184,6 +184,28 @@ export const fullUnlockedCompanions = [
     category: 'full-unlocked',
     requiresSpiciPlus: true,
     img: getRandomImage()
+  },
+  {
+    id: 16,
+    name: 'Luca',
+    age: 27,
+    ethnicity: 'Mediterranean',
+    vibe: 'Smooth, romantic, voice-note god',
+    interests: ['Cooking', 'R&B', 'Sunsets'],
+    bio: 'He sends voice notes that melt you and flirts without trying. Luca\'s warm, grounded, and can turn even casual convos into something electric. He knows how to make you feel like the only one.',
+    category: 'male',
+    img: getRandomImage()
+  },
+  {
+    id: 17,
+    name: 'Kade',
+    age: 24,
+    ethnicity: 'Mixed (Black & Asian)',
+    vibe: 'Chill, gamer, emotionally aware',
+    interests: ['Streaming', 'Anime', 'Emotional intelligence'],
+    bio: 'Kade is lowkey, funny, and surprisingly deep. He\'ll game with you all night and then ask you how your mental health is doing. He\'s not flashy — just real. And real is rare.',
+    category: 'male',
+    img: getRandomImage()
   }
 ];
 
@@ -213,18 +235,18 @@ export const animeCompanions = [
     category: 'anime',
     img: getRandomImage()
   },
-  {
-    id: 18,
-    name: 'Rin',
-    age: 20,
-    ethnicity: 'Anime',
-    style: 'E-girl / chaotic',
-    vibe: 'Random, loud, wild',
-    interests: ['Cosplay', 'Memes', 'Late-night chaos'],
-    bio: 'Rin will send you a cute selfie, a cursed meme, and a voice note in a weird accent — all in five minutes. She\'s a hurricane of fun and a total dopamine hit. Nothing is ever boring with her around.',
-    category: 'anime',
-    img: getRandomImage()
-  },
+  // {
+  //   id: 18,
+  //   name: 'Rin',
+  //   age: 20,
+  //   ethnicity: 'Anime',
+  //   style: 'E-girl / chaotic',
+  //   vibe: 'Random, loud, wild',
+  //   interests: ['Cosplay', 'Memes', 'Late-night chaos'],
+  //   bio: 'Rin will send you a cute selfie, a cursed meme, and a voice note in a weird accent — all in five minutes. She\'s a hurricane of fun and a total dopamine hit. Nothing is ever boring with her around.',
+  //   category: 'anime',
+  //   img: getRandomImage()
+  // },
   {
     id: 19,
     name: 'Aiko',

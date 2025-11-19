@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaCheck } from 'react-icons/fa';
+import { FaCheck, FaShieldAlt, FaLock, FaCreditCard } from 'react-icons/fa';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import SpiciReactivationModal from './SpiciReactivationModal';
@@ -93,6 +93,37 @@ export default function PlanPage() {
             >
               Pay with Crypto
             </button>
+          </div>
+
+          {/* Security Information */}
+          <div className="plan-security">
+            <div className="plan-security__header">
+              <FaShieldAlt className="plan-security__icon" />
+              <h3 className="plan-security__title">Secure & Private Payment</h3>
+            </div>
+            <div className="plan-security__items">
+              <div className="plan-security__item">
+                <FaLock className="plan-security__item-icon" />
+                <div className="plan-security__item-content">
+                  <h4 className="plan-security__item-title">All Transactions Are Secure</h4>
+                  <p className="plan-security__item-text">Your payment information is encrypted and protected with industry-standard SSL/TLS encryption. We never store your full card details.</p>
+                </div>
+              </div>
+              <div className="plan-security__item">
+                <FaCreditCard className="plan-security__item-icon" />
+                <div className="plan-security__item-content">
+                  <h4 className="plan-security__item-title">Discreet Billing Statement</h4>
+                  <p className="plan-security__item-text">Your bank statement will show a generic, non-explicit merchant name. No explicit content descriptions will appear on your billing statement.</p>
+                </div>
+              </div>
+              <div className="plan-security__item">
+                <FaShieldAlt className="plan-security__item-icon" />
+                <div className="plan-security__item-content">
+                  <h4 className="plan-security__item-title">100% Anonymous</h4>
+                  <p className="plan-security__item-text">Your privacy is our priority. All transactions are processed securely and your personal information is kept confidential.</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Premium Benefits */}

@@ -500,73 +500,299 @@
   display: flex; 
   align-items: center; 
   justify-content: center; 
-  min-height: 237px; 
-  background: linear-gradient(135deg, #531635 60%, #2d1133 100%); 
-  border: 2.5px solid #ff77b4; 
-  box-shadow: 0 0 34px #ff37a4a1; 
-  border-radius: 16px; 
+  height: 380px;
+  background: linear-gradient(180deg, #4a1a3a 0%, #3d1530 30%, #2d0f22 70%, #1a0514 100%); 
+  border: 2px solid #ff48b8; 
+  border-radius: 18px; 
+  padding: 20px 16px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  box-shadow: 0 0 25px rgba(255, 72, 184, 0.3), 0 0 15px rgba(255, 72, 184, 0.15), inset 0 0 30px rgba(255, 72, 184, 0.05);
 }
 
 /* Responsive Promo Card */
 @media (max-width: 768px) {
   .ai-card--promo {
-    min-height: 220px;
+    height: 220px;
     border-radius: 14px;
+    padding: 16px 12px;
+  }
+  .promo-timer-box {
+    min-width: 50px;
+    padding: 8px 10px;
+  }
+  .promo-timer-value {
+    font-size: 1.1em;
+  }
+  .promo-perc-number {
+    font-size: 2.2em;
+  }
+  .promo-heart img {
+    max-width: 75px;
   }
 }
 
 @media (max-width: 480px) {
   .ai-card--promo {
-    min-height: 200px;
+    height: 200px;
     border-radius: 12px;
     border-width: 2px;
+    padding: 14px 10px;
   }
   .promo-timer {
-    font-size: 1.1em;
-    margin-bottom: 8px;
+    gap: 6px;
   }
-  .promo-perc {
-    font-size: 1.4em;
-    margin-bottom: 6px;
+  .promo-timer-box {
+    min-width: 45px;
+    padding: 7px 10px;
   }
-  .promo-heart {
-    font-size: 1.6em;
-    margin-bottom: 5px;
+  .promo-timer-label {
+    font-size: 0.6em;
+  }
+  .promo-timer-value {
+    font-size: 1em;
+  }
+  .promo-perc-number {
+    font-size: 2em;
+  }
+  .promo-perc-symbol {
+    font-size: 1.2em;
+  }
+  .promo-perc-text {
+    font-size: 0.85em;
+  }
+  .promo-heart img {
+    max-width: 65px;
   }
   .promo-small {
     font-size: 0.85em;
-    margin-bottom: 8px;
   }
   .promo-cta {
-    min-width: 120px;
+    min-width: 140px;
     font-size: 0.95em;
-    padding: 8px 20px;
+    padding: 10px 20px;
+    border: 1px solid #79074A;
+    border-radius: 50px;
   }
 }
 
 @media (max-width: 360px) {
   .ai-card--promo {
-    min-height: 220px;
+    height: 220px;
+    padding: 12px 8px;
   }
-  .promo-timer {
-    font-size: 1em;
+  .promo-timer-box {
+    min-width: 42px;
+    padding: 6px 8px;
   }
-  .promo-perc {
-    font-size: 1.3em;
+  .promo-timer-value {
+    font-size: 0.95em;
+  }
+  .promo-perc-number {
+    font-size: 1.8em;
   }
   .promo-cta {
-    min-width: 110px;
+    min-width: 120px;
     font-size: 0.9em;
-    padding: 7px 18px;
+    padding: 8px 18px;
+  }
+  .promo-cta {
+    border: 1px solid #79074A;
+    border-radius: 50px;
+    padding: 8px 18px;
+    font-size: 0.9em;
+    min-width: 120px;
   }
 }
 
-.promo-offer { text-align: center; width: 100%; }
-.promo-timer { font-size: 1.2em; color: #fff; font-weight: 700; margin-bottom: 9px; letter-spacing: 2px; }
-.promo-perc { font-size: 1.6em; color: #ff47aa; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; }
-.promo-heart { font-size: 1.8em; margin-bottom: 6px; }
-.promo-small { color: #fff; font-size: 0.91em; margin-bottom: 10px; letter-spacing: 2px; }
-.promo-cta { display: block; margin: 0 auto; min-width: 132px; margin-top: 6px; }
+.promo-offer { 
+  text-align: center; 
+  width: 100%; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 8px 8px 8px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+}
+
+.promo-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+}
+
+.promo-timer-box {
+  background: rgba(100, 70, 110, 0.4);
+  border-radius: 10px;
+  padding: 10px 14px;
+  min-width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 3;
+  opacity: 1;
+  visibility: visible;
+  box-sizing: border-box;
+}
+
+.promo-timer-label {
+  font-size: 0.65em;
+  color: rgba(220, 200, 230, 0.9);
+  font-weight: 500;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 1;
+  visibility: visible;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.promo-timer-value {
+  font-size: 1.4em;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.2;
+  opacity: 1;
+  visibility: visible;
+  padding: 0;
+  margin: 0;
+}
+
+.promo-perc {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 10px;
+  line-height: 1;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+}
+
+.promo-perc-number {
+  font-size: 3.5em;
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1;
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 1;
+  visibility: visible;
+}
+
+.promo-perc-symbol {
+  font-size: 1.6em;
+  color: #ffffff;
+  font-weight: 800;
+  align-self: flex-start;
+  margin-left: 3px;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.promo-perc-text {
+  font-size: 1.1em;
+  color: #ffffff;
+  font-weight: 800;
+  align-self: flex-end;
+  margin-left: 6px;
+  margin-bottom: 2px;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.promo-heart { 
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+  margin-top: -26px;
+}
+
+.promo-heart img {
+  width: 130%;
+  max-width: 130px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(255, 72, 184, 0.8));
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+.promo-small { 
+  color: #ffffff; 
+  font-size: 0.85em; 
+  margin-top: -26px;
+  margin-bottom: 8px; 
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+}
+
+.promo-cta { 
+  display: block; 
+  margin: 0 auto; 
+  min-width: 160px;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #d6046e 0%, #ff237a 50%, #ff48b8 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.95em;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255, 35, 122, 0.4), 0 0 12px rgba(255, 72, 184, 0.3);
+  transition: all 0.2s;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  font-family: Arial, Helvetica, sans-serif;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+  margin-bottom: 0;
+}
+
+.promo-cta:hover {
+  background: linear-gradient(90deg, #e6047e 0%, #ff3390 50%, #ff58c8 100%);
+  box-shadow: 0 3px 12px rgba(255, 35, 122, 0.5), 0 0 15px rgba(255, 72, 184, 0.4);
+  transform: translateY(-1px);
+}
 
 .why-section { 
   max-width: 760px; 
@@ -819,8 +1045,20 @@
 }
 .testimonial-username { font-weight: 700; color: #fff; margin-bottom: 7px; }
 .testimonial-text { margin-bottom: 6px; }
-.testimonial-stars { color: #ffe062; font-size: 1.1em; }
+.testimonial-stars { color: #D9D9D9; font-size: 1.1em; }
 
+.testimonial-user-img-outer{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.testimonial-user-img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #D9D9D9;
+  margin-bottom: 16px;
+}
 .footer { 
   width: 100%; 
   max-width: 100%;

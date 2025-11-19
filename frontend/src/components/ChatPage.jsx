@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { FaBars, FaSearch, FaComments, FaUser, FaStar, FaGem, FaUsers, FaQuestionCircle, FaCog, FaVideo, FaInfoCircle, FaGift, FaPaperPlane, FaCoins, FaGlobe, FaTimes, FaLock, FaCrown, FaChartLine, FaMicrophone, FaPlane } from 'react-icons/fa';
+import { FaBars, FaSearch, FaComments, FaUser, FaStar, FaGem, FaUsers, FaQuestionCircle, FaCog, FaVideo, FaInfoCircle, FaGift, FaPaperPlane, FaCoins, FaGlobe, FaTimes, FaLock, FaCrown, FaChartLine, FaMicrophone, FaPlane, FaVolumeUp, FaSmile } from 'react-icons/fa';
 import { FaFire } from 'react-icons/fa';
 import Sidebar from './Sidebar';
 import img904 from '../assets/images/904.png';
@@ -20,10 +20,9 @@ const conversations = [
 ];
 
 const messages = [
-  { id: 1, sender: 'user', text: "Hi there! How are you today?", time: '10:30' },
-  { id: 2, sender: 'ai', text: "looking for some advice on planning a surprise birthday party for my best friend. Any ideas?", avatar: chatImages[0], time: '10:32' },
-  { id: 3, type: 'locked-image', avatar: chatImages[0] },
-  { id: 4, sender: 'user', text: "That sounds exciting! Tell me a bit about your friend. What are their interests and hobbies?", time: '10:34' },
+  { id: 1, sender: 'user', text: "Hey Olivia, I'm looking for some advice on planning a surprise birthday party for my best friend. Any ideas?", time: '10:30' },
+  { id: 2, sender: 'ai', text: "Hi there! How are you today?", avatar: chatImages[0], time: '10:32' },
+  { id: 3, sender: 'ai', text: "That sounds exciting! Tell me a bit about your friend. What are their interests and hobbies?", avatar: chatImages[0], time: '10:34' },
 ];
 
 export default function ChatPage() {
@@ -32,11 +31,12 @@ export default function ChatPage() {
   const [messageText, setMessageText] = useState('');
   const [showConversations, setShowConversations] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
-  const [showSpiciModal, setShowSpiciModal] = useState(true);
+  const [showSpiciModal, setShowSpiciModal] = useState(false);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
   const [contentAgreed, setContentAgreed] = useState(false);
   const [showGiftModal, setShowGiftModal] = useState(false);
   const [selectedGift, setSelectedGift] = useState(null);
+  const [showGiftNotification, setShowGiftNotification] = useState(true);
 
   const handleSendMessage = (e) => {
     e.preventDefault();
@@ -62,7 +62,9 @@ export default function ChatPage() {
     console.log('Sending gift:', giftId);
     // Here you would normally send the gift via API
     setShowGiftModal(false);
-    // Show success message or notification
+    setShowGiftNotification(true);
+    // Auto-hide notification after 5 seconds
+    setTimeout(() => setShowGiftNotification(false), 5000);
   };
 
   return (
@@ -209,13 +211,33 @@ export default function ChatPage() {
               <div className="chat-main__progress">
                 <div className="chat-main__progress-bar"></div>
               </div>
+              <FaGift className="chat-main__gift-icon" />
             </div>
-            <button className="chat-main__action-btn" onClick={() => setShowProfile(!showProfile)} title="Profile Info"><FaInfoCircle /></button>
-            <button className="chat-main__action-btn" onClick={() => {/* Handle video call */}} title="Video Call"><FaVideo /></button>
+            <button className="chat-main__action-btn" onClick={() => {/* Handle volume */}} title="Volume"><FaVolumeUp /></button>
           </div>
         </div>
 
         <div className="chat-main__messages">
+          {showGiftNotification && (
+            <div className="chat-gift-notification">
+              <FaGift className="chat-gift-notification__icon" />
+              <span className="chat-gift-notification__text">Gift sent successfully!</span>
+              <div className="chat-gift-notification__xp">
+                <FaStar className="chat-gift-notification__star" />
+                <span>+7 XP</span>
+              </div>
+              <div className="chat-gift-notification__mood">
+                <FaSmile className="chat-gift-notification__smile" />
+                <span>Happy</span>
+              </div>
+              <button 
+                className="chat-gift-notification__close" 
+                onClick={() => setShowGiftNotification(false)}
+              >
+                <FaTimes />
+              </button>
+            </div>
+          )}
           {messages.map(msg => {
             if (msg.type === 'locked-image') {
               return (
@@ -238,6 +260,9 @@ export default function ChatPage() {
                 {msg.sender === 'ai' && (
                   <img src={msg.avatar} alt="AI" className="chat-message__avatar" />
                 )}
+                {msg.sender === 'user' && (
+                  <img src={chatImages[1]} alt="User" className="chat-message__avatar" />
+                )}
                 <div className="chat-message__bubble">
                   <p className="chat-message__text">{msg.text}</p>
                   <span className="chat-message__time">{msg.time}</span>
@@ -249,16 +274,18 @@ export default function ChatPage() {
 
         <form className="chat-main__input" onSubmit={handleSendMessage}>
           <button type="button" className="chat-main__input-icon" onClick={handleGiftClick}><FaGift /></button>
-          <input
-            type="text"
-            placeholder="Type a message..."
-            value={messageText}
-            onChange={(e) => setMessageText(e.target.value)}
-          />
-          <button type="submit" className="chat-main__send-btn">
-            <FaPaperPlane />
-            <span>Send</span>
-          </button>
+          <div className="chat-main__input-wrapper">
+            <input
+              type="text"
+              placeholder="Type a message..."
+              value={messageText}
+              onChange={(e) => setMessageText(e.target.value)}
+            />
+            <button type="submit" className="chat-main__send-btn">
+              <FaPaperPlane />
+              <span>Send</span>
+            </button>
+          </div>
         </form>
       </main>
 
@@ -385,9 +412,12 @@ export default function ChatPage() {
       {showGiftModal && (
         <div className="gift-modal-overlay" onClick={() => setShowGiftModal(false)}>
           <div className="gift-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="gift-modal__close" onClick={() => setShowGiftModal(false)}>
-              <FaTimes />
-            </button>
+            <div className="gift-modal__header">
+              <h2 className="gift-modal__title">Send a Gift</h2>
+              <button className="gift-modal__close" onClick={() => setShowGiftModal(false)}>
+                <FaTimes />
+              </button>
+            </div>
             
             {/* Small Gifts Grid */}
             <div className="gift-modal__grid">
@@ -396,7 +426,7 @@ export default function ChatPage() {
                 onClick={() => setSelectedGift('soft-drink')}
               >
                 <div className="gift-item__image gift-item__image--soft-drink">
-                  <span className="gift-item__emoji">🥤</span>
+                  <img src="/3d-summer-cocktail-with-cherry-orange-slice 1.png" alt="Soft Drink" />
                 </div>
                 <div className="gift-item__name">Soft Drink</div>
                 <div className="gift-item__cost">
@@ -416,7 +446,7 @@ export default function ChatPage() {
                 onClick={() => setSelectedGift('rose')}
               >
                 <div className="gift-item__image gift-item__image--rose">
-                  <span className="gift-item__emoji">🌹</span>
+                  <img src="/cute-bright-pastel-pink-roses 1.png" alt="Rose" />
                 </div>
                 <div className="gift-item__name">Rose</div>
                 <div className="gift-item__cost">
@@ -440,7 +470,7 @@ export default function ChatPage() {
                 onClick={() => setSelectedGift('chocolate')}
               >
                 <div className="gift-item__image gift-item__image--chocolate">
-                  <span className="gift-item__emoji">🍫</span>
+                  <img src="/open-closed-box-with-round-chocolates-festive-pink-heart-shaped-packaging 1.png" alt="Chocolate Box" />
                 </div>
                 <div className="gift-item__name">Chocolate Box</div>
                 <div className="gift-item__cost">
@@ -464,7 +494,7 @@ export default function ChatPage() {
                 onClick={() => setSelectedGift('parfume')}
               >
                 <div className="gift-item__image gift-item__image--parfume">
-                  <span className="gift-item__emoji">💄</span>
+                  <img src="/3d-realistic-perfume-icon-vector-illustration 1.png" alt="Parfume" />
                 </div>
                 <div className="gift-item__name">Parfume</div>
                 <div className="gift-item__cost">
@@ -488,7 +518,7 @@ export default function ChatPage() {
                 onClick={() => setSelectedGift('bag')}
               >
                 <div className="gift-item__image gift-item__image--bag">
-                  <span className="gift-item__emoji">👜</span>
+                  <img src="/3d-beach-bag-with-heart-details 1.png" alt="Designer Bag" />
                 </div>
                 <div className="gift-item__name">Designer Bag</div>
                 <div className="gift-item__cost">
@@ -512,7 +542,7 @@ export default function ChatPage() {
                 onClick={() => setSelectedGift('ring')}
               >
                 <div className="gift-item__image gift-item__image--ring">
-                  <span className="gift-item__emoji">💍</span>
+                  <img src="/wedding-ring-with-diamond-it-realistic-3d-icon 1.png" alt="Diamond Ring" />
                 </div>
                 <div className="gift-item__name">Diamond Ring</div>
                 <div className="gift-item__cost">
@@ -538,7 +568,7 @@ export default function ChatPage() {
               onClick={() => setSelectedGift('plane')}
             >
               <div className="gift-item__image gift-item__image--plane">
-                <FaPlane className="gift-item__plane-icon" />
+                <img src="/white-realistic-passenger-plane-3d-concepts-commercial-passenger-transportation-travel 1.png" alt="Private Plane" />
               </div>
               <div className="gift-item__content">
                 <div className="gift-item__name">Private Plane</div>

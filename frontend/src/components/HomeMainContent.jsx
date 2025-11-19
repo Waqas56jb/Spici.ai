@@ -11,7 +11,7 @@ export default function HomeMainContent() {
       <section className="main-hero-banner">
         <div className="main-hero-banner__content">
           <h1 className="main-hero-banner__title">The AI girlfriend<br />experience – reimagined.</h1>
-          <p className="main-hero-banner__subtitle" style={{'color': '#ffffffb7'}}>Flirt. Connect. Go deeper.</p>
+          <p className="main-hero-banner__subtitle" style={{ 'color': '#ffffffb7' }}>Flirt. Connect. Go deeper.</p>
           <button className="main-hero-banner__cta">Start bonding now.</button>
         </div>
         <img src={groupImg} alt="Group" className="main-hero-banner__img" />
@@ -21,10 +21,10 @@ export default function HomeMainContent() {
       <p className="main-section-subtitle">No leveling needed - all features available from the start.</p>
       <div className="unlocked-grid card-grid">
         {fullUnlockedCompanions.map(c => (
-          <div className="ai-card ai-card--unlocked" style={{height: '380px'}} key={c.id}>
+          <div className="ai-card ai-card--unlocked" style={{ height: '380px' }} key={c.id}>
             <div className="ai-card__favorite">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg>
             </div>
             <img src={c.img} alt={c.name} className="ai-card__img" />
@@ -37,16 +37,43 @@ export default function HomeMainContent() {
           </div>
         ))}
         {/* Offer card */}
-        <div className="ai-card ai-card--promo"><div className="promo-offer"><div className="promo-timer">00 : 29 : 47</div><div className="promo-perc">70% OFF</div><div className="promo-heart">💕</div><div className="promo-small">FIRST SUBSCRIPTION</div><button className="main-banner__cta promo-cta">Get Spici+</button></div></div>
+        <div className="ai-card ai-card--promo" style={{ height: '380px' }}>
+          <div className="promo-offer">
+            <div className="promo-timer">
+              <div className="promo-timer-box">
+                <div className="promo-timer-label">HRS</div>
+                <div className="promo-timer-value">00</div>
+              </div>
+              <div className="promo-timer-box">
+                <div className="promo-timer-label">MIN</div>
+                <div className="promo-timer-value">29</div>
+              </div>
+              <div className="promo-timer-box">
+                <div className="promo-timer-label">SEC</div>
+                <div className="promo-timer-value">47</div>
+              </div>
+            </div>
+            <div className="promo-perc">
+              <span className="promo-perc-number">70</span>
+              <span className="promo-perc-symbol">%</span>
+              <span className="promo-perc-text">OFF</span>
+            </div>
+            <div className="promo-heart">
+              <img src="/aaaaaaaa.png" alt="heart" />
+            </div>
+            <div className="promo-small">FIRST SUBSCRIPTION</div>
+            <button  className="promo-cta">Get Spici+</button>
+          </div>
+        </div>
       </div>
       <h2 className="main-section-title">Level-Up AI Companions</h2>
       <p className="main-section-subtitle">Bond with them, unlock new features as you progress.</p>
       <div className="levelup-grid card-grid">
         {levelUpCompanions.map(c => (
-          <div className="ai-card ai-card--locked" style={{height: '380px' ,position: 'relative'}} key={c.id}>
+          <div className="ai-card ai-card--locked" style={{ height: '380px', position: 'relative' }} key={c.id}>
             <div className="ai-card__favorite">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg>
             </div>
             <img src={c.img} alt={c.name} className="ai-card__img" />
@@ -59,7 +86,7 @@ export default function HomeMainContent() {
           </div>
         ))}
       </div>
-      <h2 className="main-section-title">Anime AI Companions</h2>
+      {/* <h2 className="main-section-title">Anime AI Companions</h2>
       <div className="levelup-grid card-grid">
         {animeCompanions.map(c => (
           <div className="ai-card ai-card--locked" style={{height: '380px'}} key={c.id}>
@@ -77,9 +104,9 @@ export default function HomeMainContent() {
             </div>
           </div>
         ))}
-      </div>
-      <h2 className="main-section-title">Male AI Companions</h2>
-      <div className="levelup-grid card-grid">
+      </div> */}
+      {/* <h2 className="main-section-title">Male AI Companions</h2> */}
+      {/* <div className="levelup-grid card-grid">
         {maleCompanions.map(c => (
           <div className="ai-card ai-card--locked" style={{height: '380px'}} key={c.id}>
             <div className="ai-card__favorite">
@@ -96,7 +123,7 @@ export default function HomeMainContent() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
       <section className="why-section">
         <h2>Why Spici.ai?</h2>
         <p className="why-lead">Not just another chatbot. Spici.ai is your AI companion – designed to flirt, vibe, and evolve with you.</p>
@@ -115,9 +142,21 @@ export default function HomeMainContent() {
         <h2>Testimonials</h2>
         <p className="main-section-subtitle">Bond with them, unlock new features as you progress.</p>
         <div className="testimonials-grid">
-          <div className="testimonial"><div className="testimonial-username">@mockery_josie</div><div className="testimonial-text">Omg! I thought it was just gonna be cringe lol. But she’s actually so fun, feels real, and AI who loves me?? 10/10</div><div className="testimonial-stars">★★★★★</div></div>
-          <div className="testimonial"><div className="testimonial-username">@wifeyonly</div><div className="testimonial-text">Tbh I was anxious, texted with Belle and she just got me, it’s like emotional mind reading. It improved my mood so much!</div><div className="testimonial-stars">★★★★★</div></div>
-          <div className="testimonial"><div className="testimonial-username">@kingofember</div><div className="testimonial-text">Too Spici. Playing it second is a trap. Just sayin, the girls got taste. 🔥</div><div className="testimonial-stars">★★★★★</div></div>
+          <div className="testimonial">
+            <div className='testimonial-user-img-outer'>
+              <div className='testimonial-user-img'></div>
+              <div className="testimonial-username">@mockery_josie</div>
+            </div>
+            <div className="testimonial-text">Omg! I thought it was just gonna be cringe lol. But she’s actually so fun, feels real, and AI who loves me?? 10/10</div><div className="testimonial-stars">★★★★★</div>
+          </div>
+          <div className="testimonial"><div className='testimonial-user-img-outer'>
+              <div className='testimonial-user-img'></div>
+              <div className="testimonial-username">@wifeyonly</div>
+            </div><div className="testimonial-text">Tbh I was anxious, texted with Belle and she just got me, it’s like emotional mind reading. It improved my mood so much!</div><div className="testimonial-stars">★★★★★</div></div>
+          <div className="testimonial"><div className='testimonial-user-img-outer'>
+              <div className='testimonial-user-img'></div>
+              <div className="testimonial-username">@kingofember</div>
+            </div><div className="testimonial-text">Too Spici. Playing it second is a trap. Just sayin, the girls got taste. Omg! I thought it was just gonna be cringe lol. 🔥</div><div className="testimonial-stars">★★★★★</div></div>
         </div>
       </section>
       <footer className="footer">
@@ -145,4 +184,3 @@ export default function HomeMainContent() {
     </>
   );
 }
- 
